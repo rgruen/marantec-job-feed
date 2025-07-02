@@ -4,15 +4,23 @@ import json
 import os
 
 # URLs
-# The parent page that sets the necessary session/cookies
 parent_url = 'https://marantec-group.softgarden.io/de/widgets/internaljobs'
-# The actual content URL (from the iframe)
 content_url = 'https://marantec-group.softgarden.io/de/job-offers/internal?1&view-mode=widget'
 
-# Headers to mimic a real browser
+# More comprehensive headers to mimic a real browser request from within an iframe
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-    'Referer': parent_url
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
+    'Referer': parent_url,
+    'Sec-Ch-Ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+    'Sec-Ch-Ua-Mobile': '?0',
+    'Sec-Ch-Ua-Platform': '"Windows"',
+    'Sec-Fetch-Dest': 'iframe',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'same-origin',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
 }
 
 # Use a session object to handle cookies automatically
